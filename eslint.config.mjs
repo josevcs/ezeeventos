@@ -1,16 +1,35 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+    baseDirectory: __dirname,
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+    ...compat.extends('next/core-web-vitals', 'next/typescript'),
+    eslintConfigPrettier,
+    eslintPluginPrettierRecommended,
+    {
+        rules: {
+            'prettier/prettier': 'error',
+            'react/react-in-jsx-scope': 'off',
+            'spaced-comment': 'error',
+            'no-console': 'error',
+        },
+    },
+    {
+        settings: {
+            react: {
+                version: 'detect',
+            },
+        },
+    },
 ];
 
 export default eslintConfig;
