@@ -1,11 +1,11 @@
 'use client';
 import TabBar from '@/components/TabBar/TabBar';
 import { useState } from 'react';
-import Teams from '@/components/Teams/Teams';
-import Brackets from '@/components/Brackets/Brackets';
-import Messages from '@/components/Messages/Messages';
-import Standings from '@/components/Standings/Standings';
-import Statistics from '@/components/Statistics/Statistics';
+import Teams from '@/components/subPages/Teams/Teams';
+import Brackets from '@/components/subPages/Brackets/Brackets';
+import Messages from '@/components/subPages/Messages/Messages';
+import Standings from '@/components/subPages/Standings/Standings';
+import Statistics from '@/components/subPages/Statistics/Statistics';
 
 export default function Home() {
     const [index, setIndex] = useState(0);
